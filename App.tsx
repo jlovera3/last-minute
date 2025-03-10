@@ -1,10 +1,10 @@
 import "expo-router/entry";
 import { DarkTheme, DefaultTheme, NavigationContainer, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import Navigation from './src/navigation/Navigation';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { useColorScheme } from './src/hooks/useColorScheme';
+import { useColorScheme } from "react-native";
+import Navigation from "./src/navigation/Navigation";
 
 export default function App() {
     const colorScheme = useColorScheme();

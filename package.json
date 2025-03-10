@@ -1,6 +1,6 @@
 {
   "name": "my-temp-app",
-  "main": "src/entry.tsx",
+  "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
@@ -39,8 +39,7 @@
     "react-native-safe-area-context": "^4.12.0",
     "react-native-screens": "~4.4.0",
     "react-native-web": "~0.19.13",
-    "react-native-webview": "13.12.5",
-    "twrnc": "^4.6.1"
+    "react-native-webview": "13.12.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -51,13 +50,6 @@
     "jest-expo": "~52.0.4",
     "react-test-renderer": "18.3.1",
     "typescript": "^5.3.3"
-  },
-  "expo": {
-    "extra": {
-      "expo-router": {
-        "appDir": "src"
-      }
-    }
   },
   "private": true
 }

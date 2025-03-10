@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import tw from "../styles/tailwind";
+import tw from "../../src/styles/tailwind";
 
 export default function HotelsScreen() {
     return (
