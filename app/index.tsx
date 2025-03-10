@@ -1,11 +1,15 @@
-import { Stack } from "expo-router";
+import { View, Text } from "react-native";
+import tw from "../src/styles/tailwind";
+import Button from "../src/components/ui/Button";
+import { useRouter } from "expo-router";
 
-export default function Layout() {
+export default function HomeScreen() {
+  const router = useRouter();
+
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="home" options={{ title: "Home" }} />
-      <Stack.Screen name="hotels" options={{ title: "Hotels" }} />
-      <Stack.Screen name="hotel-details" options={{ title: "Hotel Details" }} />
-    </Stack>
+    <View style={tw`flex-1 items-center justify-center bg-gray-100`}>
+      <Text style={tw`text-xl font-bold`}>Welcome to Last Minute</Text>
+      <Button title="View Hotels" onPress={() => router.push("/hotels")} />
+    </View>
   );
 }
