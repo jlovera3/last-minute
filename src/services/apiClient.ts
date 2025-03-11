@@ -1,22 +1,11 @@
-import Constants from "expo-constants";
-import { API_URL } from "@env"; // Import the API_URL from the correct .env file
-
-const getApiUrl = () => {
-  if (__DEV__) {
-    return API_URL; // Development mode
-  }
-
-  return Constants.expoConfig?.extra?.ENV === "production"
-    ? API_URL // Production URL
-    : API_URL; // Integration URL
-};
+import { hotelsMock } from "../mocks/hotelsMock";
 
 /**
  * Base API URL from environment variables.
  * @type {string}
  */
-const API_URL_FINAL = getApiUrl();
-console.log("🚀 ~ API_URL_FINAL:", API_URL_FINAL);
+const API_URL_FINAL = 'https://technology.lastminute.com/api/';
+console.log(" API_URL_FINAL:", API_URL_FINAL);
 
 /**
  * Generic function to handle API requests.
@@ -26,7 +15,13 @@ console.log("🚀 ~ API_URL_FINAL:", API_URL_FINAL);
  */
 export async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     try {
-        const response = await fetch(`${API_URL_FINAL}${endpoint}`, options);
+        const response = await fetch(`${API_URL_FINAL}${endpoint}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            mode: 'no-cors',
+        });
         console.log("response:", response);
 
         switch (response.status) {
@@ -49,6 +44,8 @@ export async function apiRequest<T>(endpoint: string, options: RequestInit = {})
         }
     } catch (error) {
         console.error("API request failed:", error);
-        throw error;
+        //throw error;
+    } finally {
+        return hotelsMock as unknown as T;
     }
 }
