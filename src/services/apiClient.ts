@@ -5,7 +5,6 @@ import { hotelsMock } from "../mocks/hotelsMock";
  * @type {string}
  */
 const API_URL_FINAL = 'https://technology.lastminute.com/api/';
-console.log(" API_URL_FINAL:", API_URL_FINAL);
 
 /**
  * Generic function to handle API requests.
@@ -20,7 +19,6 @@ export async function apiRequest<T>(endpoint: string, options: RequestInit = {})
             headers: {
                 'Content-Type': 'application/json',
             },
-            mode: 'no-cors',
         });
         console.log("response:", response);
 
@@ -44,8 +42,8 @@ export async function apiRequest<T>(endpoint: string, options: RequestInit = {})
         }
     } catch (error) {
         console.error("API request failed:", error);
-        //throw error;
-    } finally {
+        throw error;
+    } /* finally {
         return hotelsMock as unknown as T;
-    }
+    } */
 }

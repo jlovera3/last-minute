@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import tw from "../src/styles/tailwind";
-import Button from "../src/components/ui/Button";
+import Button from "../src/components/ui/button/Button";
 import { useRouter } from "expo-router";
 
 export default function HomeScreen() {

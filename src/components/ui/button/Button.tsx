@@ -1,5 +1,5 @@
 import { TouchableOpacity, Text } from "react-native";
-import tw from "../../styles/tailwind";
+import tw from "../../../styles/tailwind";
 
 interface ButtonProps {
     title: string;
