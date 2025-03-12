@@ -1,10 +1,12 @@
+import { SearchOptions } from "@/src/components/common/SearchOptions";
+import TopBar from "@/src/components/common/TopBar";
 import CardComponent from "@/src/components/ui/card/CardComponent";
 import { Hotel } from "@/src/interfaces/hotel";
 import { fetchHotels } from "@/src/services/hotelService";
 import tw from "@/src/styles/tailwind";
 import React, { useEffect, useState } from "react";
 import { View, FlatList } from "react-native";
-import { Text, ActivityIndicator } from "react-native-paper";
+import { Text, ActivityIndicator, Provider } from "react-native-paper";
 
 /**
  * Screen to display a list of hotels fetched from the API.
@@ -46,23 +48,24 @@ export default function HotelsScreen() {
   }
 
   return (
-    <View style={tw`flex-1 bg-white p-4`}>
-      <Text style={tw`text-xl font-bold mb-4`}>Available Hotels</Text>
-
-      <FlatList
-        data={hotels}
-        keyExtractor={(hotel) => hotel.id.toString()}
-        renderItem={({ item }) => (
-          <CardComponent
-            title={item.name}
-            image={item.gallery[0]}
-            location={item.location.city}
-            stars={item.stars}
-            rating={item.userRating}
-            price={`${item.price} ${item.currency}`}
-          />
-        )}
-      />
-    </View>
+    <Provider>
+      <View style={tw`flex-1 bg-white`}>
+        <TopBar title="Hotels in London" />
+        <FlatList 
+          data={hotels}
+          keyExtractor={(hotel) => hotel.id.toString()}
+          renderItem={({ item }) => (
+            <CardComponent
+              title={item.name}
+              images={item.gallery}
+              location={item.location.city}
+              stars={item.stars}
+              rating={item.userRating}
+              price={`${item.price} ${item.currency === "EUR" ? "€" : item.currency}`}
+            />
+          )}
+        />
+      </View>
+    </Provider>
   );
 }

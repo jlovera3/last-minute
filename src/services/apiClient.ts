@@ -41,8 +41,8 @@ export async function apiRequest<T>(endpoint: string, options: RequestInit = {})
                 throw new Error(`Unexpected error: ${response.statusText}`);
         }
     } catch (error) {
-        console.error("API request failed:", error);
-        throw error;
+        console.error("API request failed, returning mock data instead,", error);
+        return hotelsMock as unknown as T;
     } /* finally {
         return hotelsMock as unknown as T;
     } */
