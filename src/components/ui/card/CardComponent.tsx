@@ -19,12 +19,12 @@ interface CardComponentProps {
 export default function CardComponent({
   title,
   images = [],
-  location,
   stars,
   rating,
   price,
 }: CardComponentProps) {
   const [validImages, setValidImages] = useState<string[]>([]);
+  const hotelPlaceholder = require("@/src/assets/images/hotel-placeholder.png");
 
   useEffect(() => {
     const validateImages = async () => {
@@ -41,7 +41,7 @@ export default function CardComponent({
         <ImageCarousel images={validImages} />
       ) : (
         <Card.Cover
-          source={{ uri: validImages[0] || "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" }}
+          source={validImages.length > 0 ? { uri: validImages[0] } : hotelPlaceholder}
           style={tw`h-48 w-full rounded-lg`}
         />
       )}
