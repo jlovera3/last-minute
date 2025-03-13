@@ -1,8 +1,11 @@
 import React from "react";
 import { FlatList, Dimensions } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Hotel } from "@/src/interfaces/hotel";
 import tw from "@/src/styles/tailwind";
 import ReelItem from "./ReelItem";
+
+const TOP_BAR_HEIGHT = 64;
 
 const { height: windowHeight } = Dimensions.get("window");
 
@@ -11,6 +14,10 @@ interface ReelsScrollProps {
 }
 
 export default function ReelsScroll({ hotels }: ReelsScrollProps) {
+    const insets = useSafeAreaInsets();
+    
+    const adjustedHeight = windowHeight - TOP_BAR_HEIGHT - insets.top;
+
     return (
         <FlatList
             data={hotels}
@@ -23,13 +30,14 @@ export default function ReelsScroll({ hotels }: ReelsScrollProps) {
                     stars={item.stars}
                     rating={item.userRating}
                     price={`${item.price} ${item.currency === "EUR" ? "€" : item.currency}`}
+                    height={adjustedHeight}
                 />
             )}
             pagingEnabled
             showsVerticalScrollIndicator={false}
-            snapToInterval={windowHeight} // Asegura que cada item ocupa una pantalla
+            snapToInterval={adjustedHeight}
             decelerationRate="fast"
-            contentContainerStyle={{ height: hotels.length * windowHeight }} // Evita que el scroll colapse
+            contentContainerStyle={{ height: hotels.length * adjustedHeight }}
             style={tw`flex-1`}
         />
     );
