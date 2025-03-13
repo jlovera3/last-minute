@@ -1,5 +1,6 @@
 import { SearchOptions } from "@/src/components/common/SearchOptions";
 import TopBar from "@/src/components/common/TopBar";
+import CircularScrollView from "@/src/components/layouts/CircularScrollView";
 import CardComponent from "@/src/components/ui/card/CardComponent";
 import GenericModal from "@/src/components/ui/modal/GenericModal";
 import { useModalHandler } from "@/src/hooks/useModalHandler";
@@ -17,6 +18,7 @@ export default function HotelsScreen() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [displayMode, setDisplayMode] = useState<number>(0);
   const { modalVisible, modalTitle, modalOptions, openModal, closeModal, onSelectCallback } = useModalHandler();
 
   useEffect(() => {
@@ -80,28 +82,45 @@ export default function HotelsScreen() {
     );
   };
 
+
   const handleDisplayMode = () => {
-    console.log(" handleDisplayMode ~ Open display modal");
+    openModal(
+      "Display Options",
+      [
+        { icon: "format-list-bulleted", label: "List View", actionClicked: 0 },
+        { icon: "horizontal-rotate-clockwise", label: "Wheel View", actionClicked: 1 },
+      ],
+      (selected) => {
+        setDisplayMode(selected);
+        closeModal();
+      }
+    );
   };
 
   return (
     <Provider>
       <View style={tw`flex-1 bg-white`}>
         <TopBar title="Hotels in London" onActionOnePress={handleSort} onActionTwoPress={handleDisplayMode} />
-        <FlatList
-          data={hotels}
-          keyExtractor={(hotel) => hotel.id.toString()}
-          renderItem={({ item }) => (
-            <CardComponent
-              title={item.name}
-              images={item.gallery}
-              location={item.location.city}
-              stars={item.stars}
-              rating={item.userRating}
-              price={`${item.price} ${item.currency === "EUR" ? "€" : item.currency}`}
-            />
-          )}
-        />
+
+        {displayMode === 0 ? (
+          <FlatList
+            data={hotels}
+            keyExtractor={(hotel) => hotel.id.toString()}
+            renderItem={({ item }) => (
+              <CardComponent
+                title={item.name}
+                images={item.gallery}
+                location={item.location.city}
+                stars={item.stars}
+                rating={item.userRating}
+                price={`${item.price} ${item.currency === "EUR" ? "€" : item.currency}`}
+              />
+            )}
+          />
+        ) : (
+          <CircularScrollView hotels={hotels} />
+        )}
+
 
         {modalVisible && (
           <GenericModal

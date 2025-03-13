@@ -14,6 +14,7 @@ interface CardComponentProps {
   stars: number;
   rating: number;
   price: string;
+  style?: string;
 }
 
 export default function CardComponent({
@@ -22,6 +23,7 @@ export default function CardComponent({
   stars,
   rating,
   price,
+  style,
 }: CardComponentProps) {
   const [validImages, setValidImages] = useState<string[]>([]);
   const hotelPlaceholder = require("@/src/assets/images/hotel-placeholder.png");
@@ -35,7 +37,7 @@ export default function CardComponent({
   }, [images]);
 
   return (
-    <Card style={tw`p-4 m-4`}>
+    <Card style={tw`p-4 ${style ? style : "m-4"}`}>
       {/* Show Carousel if multiple valid images exist, otherwise show cover */}
       {validImages.length > 1 ? (
         <ImageCarousel images={validImages} />
@@ -46,7 +48,7 @@ export default function CardComponent({
         />
       )}
 
-      < Card.Content style={tw`px-4 pt-4 pb-0`}>
+      <Card.Content style={tw`px-4 pt-4 pb-0`}>
         <Title style={tw`text-xl`}>{title}</Title>
 
         <View style={tw`flex-row items-center my-1 justify-between`}>
