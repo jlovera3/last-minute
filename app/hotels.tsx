@@ -53,6 +53,9 @@ export default function HotelsScreen() {
       case 4: // Star Rating
         sortedHotels.sort((a, b) => b.stars - a.stars);
         break;
+      case 5: // User Rating
+        sortedHotels.sort((a, b) => b.userRating - a.userRating);
+        break;
       default:
         return;
     }
@@ -68,6 +71,7 @@ export default function HotelsScreen() {
         { icon: "cash-minus", label: "Price Low to High", actionClicked: 2 },
         { icon: "cash-plus", label: "Price High to Low", actionClicked: 3 },
         { icon: "star", label: "Star Rating", actionClicked: 4 },
+        { icon: "emoticon-excited-outline", label: "User Rating", actionClicked: 5 },
       ],
       (selected) => {
         sortHotels(selected);
