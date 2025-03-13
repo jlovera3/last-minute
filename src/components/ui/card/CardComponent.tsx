@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { View, Dimensions, Image } from "react-native";
-import { Card, Title, Paragraph, Divider } from "react-native-paper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Card } from "react-native-paper";
 import tw from "@/src/styles/tailwind";
 import { checkImages } from "@/src/utils/imageUtils";
 import ImageCarousel from "../ImageCarousel";
-import StarRating from "../StarRating";
+import HotelInfo from "../hotel/hotelInfo";
 
 interface CardComponentProps {
   title: string;
@@ -37,7 +35,7 @@ export default function CardComponent({
   }, [images]);
 
   return (
-    <Card style={tw`p-4 ${style ? style : "m-4"}`}>
+    <Card style={tw`${style ? style : "m-4 p-4"}`}>
       {/* Show Carousel if multiple valid images exist, otherwise show cover */}
       {validImages.length > 1 ? (
         <ImageCarousel images={validImages} />
@@ -49,19 +47,7 @@ export default function CardComponent({
       )}
 
       <Card.Content style={tw`px-4 pt-4 pb-0`}>
-        <Title style={tw`text-xl`}>{title}</Title>
-
-        <View style={tw`flex-row items-center my-1 justify-between`}>
-          <StarRating stars={stars} />
-          <Paragraph style={tw`text-gray-600 text-base`}>{rating}/10</Paragraph>
-        </View>
-
-        <Divider style={tw`my-2`} />
-
-        <View style={tw`flex-row justify-end`}>
-          <Paragraph style={tw`text-lg mt-2 justify-end`}>{price} per night</Paragraph>
-        </View>
-
+        <HotelInfo title={title} stars={stars} rating={rating} price={price} />
       </Card.Content>
     </Card >
   );

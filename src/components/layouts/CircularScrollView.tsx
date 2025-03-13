@@ -78,7 +78,7 @@ export default function WheelScrollView({ hotels }: WheelScrollViewProps) {
                                 stars={hotel.stars}
                                 rating={hotel.userRating}
                                 price={`${hotel.price} ${hotel.currency === "EUR" ? "€" : hotel.currency}`}
-                                style="mx-4 px-4"
+                                style="mx-4 p-4"
                             />
                         </Animated.View>
                     );

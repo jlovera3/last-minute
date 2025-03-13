@@ -1,6 +1,6 @@
-import { SearchOptions } from "@/src/components/common/SearchOptions";
 import TopBar from "@/src/components/common/TopBar";
 import CircularScrollView from "@/src/components/layouts/CircularScrollView";
+import ReelsScroll from "@/src/components/layouts/ReelsScrollView";
 import CardComponent from "@/src/components/ui/card/CardComponent";
 import GenericModal from "@/src/components/ui/modal/GenericModal";
 import { useModalHandler } from "@/src/hooks/useModalHandler";
@@ -9,7 +9,7 @@ import { fetchHotels } from "@/src/services/hotelService";
 import tw from "@/src/styles/tailwind";
 import React, { useEffect, useState } from "react";
 import { View, FlatList } from "react-native";
-import { Text, ActivityIndicator, Provider } from "react-native-paper";
+import { Provider } from "react-native-paper";
 
 /**
  * Screen to display a list of hotels fetched from the API.
@@ -88,7 +88,8 @@ export default function HotelsScreen() {
       "Display Options",
       [
         { icon: "format-list-bulleted", label: "List View", actionClicked: 0 },
-        { icon: "horizontal-rotate-clockwise", label: "Wheel View", actionClicked: 1 },
+        { icon: "animation-outline", label: "Wheel View", actionClicked: 1 },
+        { icon: "align-vertical-distribute", label: "Reel View", actionClicked: 2 },
       ],
       (selected) => {
         setDisplayMode(selected);
@@ -117,9 +118,12 @@ export default function HotelsScreen() {
               />
             )}
           />
-        ) : (
+        ) : displayMode === 1 ? (
           <CircularScrollView hotels={hotels} />
+        ) : (
+          <ReelsScroll hotels={hotels} />
         )}
+
 
 
         {modalVisible && (
