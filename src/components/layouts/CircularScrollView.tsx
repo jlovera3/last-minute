@@ -6,8 +6,7 @@ import { Hotel } from "@/src/interfaces/hotel";
 import CardComponent from "../ui/card/CardComponent";
 
 const { height, width } = Dimensions.get("window");
-const ITEM_HEIGHT = height * 0.35;
-const SPACING = height * 0.1;
+const ITEM_HEIGHT = height * 0.40;
 
 interface WheelScrollViewProps {
     hotels: Hotel[];
@@ -30,7 +29,7 @@ export default function WheelScrollView({ hotels }: WheelScrollViewProps) {
                 showsVerticalScrollIndicator={false}
                 snapToInterval={ITEM_HEIGHT}
                 contentContainerStyle={{
-                    paddingBottom: SPACING,
+                    paddingBottom: 0,
                 }}
             >
                 {hotels.map((hotel, index) => {
@@ -71,7 +70,7 @@ export default function WheelScrollView({ hotels }: WheelScrollViewProps) {
                                 },
                             ]}
                         >
-                            <CardComponent hotel={hotel} />
+                            <CardComponent hotel={hotel} isWheelDisplayed />
                         </Animated.View>
                     );
                 })}

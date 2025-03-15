@@ -7,9 +7,10 @@ import FullScreenImageViewer from "./FullScreenImageViewer";
 interface ImageCarouselProps {
   images: string[];
   isCardDisplayed: boolean;
+  isWheelDisplayed?: boolean;
 }
 
-export default function ImageCarousel({ images, isCardDisplayed }: ImageCarouselProps) {
+export default function ImageCarousel({ images, isCardDisplayed, isWheelDisplayed }: ImageCarouselProps) {
   const { width } = Dimensions.get("window");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -27,7 +28,7 @@ export default function ImageCarousel({ images, isCardDisplayed }: ImageCarousel
   return (
     <View style={tw`w-full h-48`}>
       <Carousel
-        width={isCardDisplayed ? (width * 0.85) : width}
+        width={isCardDisplayed ? (width * (isWheelDisplayed ? 0.8 : 0.85)) : width}
         height={200}
         data={images}
         scrollAnimationDuration={600}
