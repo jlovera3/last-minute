@@ -41,7 +41,14 @@
       "typedRoutes": true
     },
     "extra": {
-      "API_URL": "https://technology.lastminute.com/api/"
-    }
+      "API_URL": "https://technology.lastminute.com/api/",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "0b85f416-d3d7-4c26-ab4b-fc7791aa87c3"
+      }
+    },
+    "owner": "jlovera3"
   }
 }
