@@ -1,31 +1,25 @@
 import React from "react";
 import { View } from "react-native";
-import { Title, Paragraph, Divider } from "react-native-paper";
-import StarRating from "@/src/components/ui/StarRating";
+import { Title, Divider } from "react-native-paper";
 import tw from "@/src/styles/tailwind";
+import HotelPrice from "./HotelPrice";
+import UserRating from "../rating/UserRating";
 
 interface HotelInfoProps {
     title: string;
     stars: number;
     rating: number;
-    price: string;
+    price: number;
+    currency: string;
 }
 
-export default function HotelInfo({ title, stars, rating, price }: HotelInfoProps) {
+export default function HotelInfo({ title, stars, rating, price, currency }: HotelInfoProps) {
     return (
-        <View>
+        <View style={tw`p-4`}>
             <Title style={tw`text-xl`}>{title}</Title>
-
-            <View style={tw`flex-row items-center my-1 justify-between`}>
-                <StarRating stars={stars} />
-                <Paragraph style={tw`text-gray-600 text-base`}>{rating}/10</Paragraph>
-            </View>
-
+            <UserRating stars={stars} rating={rating} />
             <Divider style={tw`my-2`} />
-
-            <View style={tw`flex-row justify-end`}>
-                <Paragraph style={tw`text-lg mt-2`}>{price} per night</Paragraph>
-            </View>
+            <HotelPrice price={price} currency={currency} />
         </View>
     );
 }

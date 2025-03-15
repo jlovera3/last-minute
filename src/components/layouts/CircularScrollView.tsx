@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import Animated, { useSharedValue, useAnimatedScrollHandler, useAnimatedStyle, interpolate } from "react-native-reanimated";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Hotel } from "@/src/interfaces/hotel";
@@ -71,15 +71,7 @@ export default function WheelScrollView({ hotels }: WheelScrollViewProps) {
                                 },
                             ]}
                         >
-                            <CardComponent
-                                title={hotel.name}
-                                images={hotel.gallery}
-                                location={hotel.location.city}
-                                stars={hotel.stars}
-                                rating={hotel.userRating}
-                                price={`${hotel.price} ${hotel.currency === "EUR" ? "€" : hotel.currency}`}
-                                style="mx-4 p-4"
-                            />
+                            <CardComponent hotel={hotel} />
                         </Animated.View>
                     );
                 })}
