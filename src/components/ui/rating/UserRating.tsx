@@ -11,9 +11,11 @@ interface UserRatingProps {
 
 export default function UserRating({ stars, rating }: UserRatingProps) {
     return (
-        <View style={tw`flex-row items-center my-1 justify-between`}>
+        <View style={tw`flex-row items-center my-1 justify-between`} testID="user-rating">
             <StarRating stars={stars} />
-            <Paragraph style={tw`text-gray-600 text-base`}>{rating}/10</Paragraph>
+            <Paragraph testID="rating-text" style={tw`text-gray-600 text-base`}>
+                {rating}/10
+            </Paragraph>
         </View>
     );
 }
