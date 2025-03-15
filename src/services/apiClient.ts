@@ -4,7 +4,7 @@ import { hotelsMock } from "../mocks/hotelsMock";
  * Base API URL from environment variables.
  * @type {string}
  */
-const API_URL_FINAL = 'https://technology.lastminute.com/api/';
+const API_URL = 'https://technology.lastminute.com/api/';
 
 /**
  * Generic function to handle API requests.
@@ -14,7 +14,7 @@ const API_URL_FINAL = 'https://technology.lastminute.com/api/';
  */
 export async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     try {
-        const response = await fetch(`${API_URL_FINAL}${endpoint}`, {
+        const response = await fetch(`${API_URL}${endpoint}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

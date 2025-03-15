@@ -24,13 +24,7 @@ export default function ReelsScroll({ hotels }: ReelsScrollProps) {
             keyExtractor={(hotel) => hotel.id.toString()}
             renderItem={({ item }) => (
                 <ReelItem
-                    title={item.name}
-                    images={item.gallery}
-                    location={item.location.city}
-                    stars={item.stars}
-                    rating={item.userRating}
-                    price={item.price}
-                    currency={item.currency}
+                    hotel={item}
                     height={adjustedHeight}
                 />
             )}

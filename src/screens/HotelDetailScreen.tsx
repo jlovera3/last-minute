@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView, View } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Appbar, Divider } from "react-native-paper";
@@ -11,11 +11,23 @@ import HotelPrice from "@/src/components/ui/hotel/HotelPrice";
 import UserRating from "@/src/components/ui/rating/UserRating";
 import ImageCarousel from "../components/ui/images/ImageCarousel";
 import { Hotel } from "@/src/interfaces/hotel";
+import { checkImages } from "../utils/imageUtils";
 
 export default function HotelDetailsScreen() {
     const params = useLocalSearchParams();
     const router = useRouter();
     const hotel: Hotel = JSON.parse(params.hotel as string);
+    
+    const [validImages, setValidImages] = useState<string[]>([]);
+    const hotelPlaceholder = require("@/src/assets/images/hotel-placeholder.png");
+
+    useEffect(() => {
+        const validateImages = async () => {
+            const filteredImages = await checkImages(hotel.gallery);
+            setValidImages(filteredImages);
+        };
+        validateImages();
+    }, [hotel.gallery]);
 
     return (
         <View style={tw`flex-1 bg-white`}>
@@ -26,7 +38,7 @@ export default function HotelDetailsScreen() {
 
             <ImageCarousel images={hotel.gallery} isCardDisplayed={false} />
 
-            <ScrollView style={tw`flex-1 bg-white`}>
+            <ScrollView style={tw`flex-1 bg-white`} contentContainerStyle={tw`pb-20`}>
                 <View style={tw`p-4`}>
                     <UserRating stars={hotel.stars} rating={hotel.userRating} />
                     <HotelLocation {...hotel.location} />
@@ -36,8 +48,8 @@ export default function HotelDetailsScreen() {
                 </View>
             </ScrollView>
 
-            <View style={tw`p-8`}>
-                <Divider style={tw`my-2`} />
+            <View style={tw`pb-4 px-10`}>
+                <Divider style={tw`mb-2`} />
                 <HotelPrice price={hotel.price} currency={hotel.currency} />
             </View>
         </View>

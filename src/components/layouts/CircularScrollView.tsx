@@ -70,7 +70,7 @@ export default function WheelScrollView({ hotels }: WheelScrollViewProps) {
                                 },
                             ]}
                         >
-                            <CardComponent hotel={hotel} isWheelDisplayed />
+                            <CardComponent hotel={hotel} style="mx-2 p-4" isWheelDisplayed />
                         </Animated.View>
                     );
                 })}
