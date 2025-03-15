@@ -9,7 +9,7 @@ import MailContact from "@/src/components/ui/contact/MailContact";
 import HotelLocation from "@/src/components/ui/hotel/HotelLocation";
 import HotelPrice from "@/src/components/ui/hotel/HotelPrice";
 import UserRating from "@/src/components/ui/rating/UserRating";
-import ImageCarousel from "../components/ui/ImageCarousel";
+import ImageCarousel from "../components/ui/images/ImageCarousel";
 import { Hotel } from "@/src/interfaces/hotel";
 
 export default function HotelDetailsScreen() {
