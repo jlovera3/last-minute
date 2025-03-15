@@ -9,7 +9,7 @@
     "ios": "npx expo run:ios",
     "open:ios": "npx expo prebuild && cd ios && pod install && xed . && cd ..",
     "open:android": "npx expo prebuild && cd android && open -a \"Android Studio\" .",
-    "android:prod": "cd android && ./gradlew clean && ./gradlew assembleRelease && open -a 'Android Studio' . && cd ..",
+    "build:android:prod": "cd android && ./gradlew clean && ./gradlew assembleRelease",
     "web": "npx expo start --web",
     "test": "npx jest --watchAll",
     "lint": "npx expo lint",
