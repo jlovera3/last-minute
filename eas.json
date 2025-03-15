@@ -1,4 +1,7 @@
 {
+    "cli": {
+        "appVersionSource": "remote"
+    },
     "build": {
         "development": {
             "distribution": "internal",
@@ -25,7 +28,10 @@
             },
             "ios": {
                 "enterpriseProvisioning": "universal"
-            }
+            },
+            "env": {
+              "EXPO_NO_UPDATES": "1"
+            }      
         }
     }
 }
