@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Linking } from "react-native";
+import { Text, TouchableOpacity, Linking } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import tw from "@/src/styles/tailwind";
 

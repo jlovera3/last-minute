@@ -16,8 +16,6 @@ import { Provider } from "react-native-paper";
  */
 export default function HotelsScreen() {
     const [hotels, setHotels] = useState<Hotel[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
     const [displayMode, setDisplayMode] = useState<number>(0);
     const { modalVisible, modalTitle, modalOptions, openModal, closeModal, onSelectCallback } = useModalHandler();
 
@@ -27,9 +25,7 @@ export default function HotelsScreen() {
                 const data = await fetchHotels();
                 setHotels(data);
             } catch (err) {
-                setError("Failed to fetch hotels");
-            } finally {
-                setLoading(false);
+                console.error(err);
             }
         }
 

@@ -1,4 +1,4 @@
-import React, { act } from "react";
+import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import GenericModal from "./GenericModal";
 import { Provider as PaperProvider, Portal } from "react-native-paper";

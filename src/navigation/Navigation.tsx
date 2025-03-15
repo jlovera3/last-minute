@@ -1,6 +1,6 @@
 import DetailsScreen from '@/app/hotel-details';
-import HomeScreen from '@/app/home';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from '../screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 

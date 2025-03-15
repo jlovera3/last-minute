@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react-native";
+import { render } from "@testing-library/react-native";
 import StarRating from "./StarRating";
 
 jest.mock("@expo/vector-icons", () => {

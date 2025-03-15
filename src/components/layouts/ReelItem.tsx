@@ -7,7 +7,7 @@ import { checkImages } from "@/src/utils/imageUtils";
 import { useRouter } from "expo-router";
 import { Hotel } from "@/src/interfaces/hotel";
 
-const { height: windowHeight, width: windowWidth } = Dimensions.get("window");
+const { height: windowHeight } = Dimensions.get("window");
 
 interface ReelItemProps {
     hotel: Hotel;

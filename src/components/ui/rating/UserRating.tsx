@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import StarRating from "@/src/components/ui/rating/StarRating";
 import tw from "@/src/styles/tailwind";
 import { Paragraph } from "react-native-paper";

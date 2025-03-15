@@ -38,7 +38,7 @@ export default function HomeScreen() {
                 useNativeDriver: true,
             }),
         ]).start();
-    }, []);
+    }, [hotelAnim, keysAnim, titleAnim]);
 
     return (
         <LinearGradient
@@ -103,7 +103,7 @@ export default function HomeScreen() {
                 <Button
                     title="View Hotels"
                     onPress={() => router.push("/hotels")}
-                    style={'flex w-64 h-16 bg-blue-500 text-2xl text-white items-center justify-center rounded-lg'}
+                    style={'flex w-64 h-16 bg-[#F2007D] text-2xl text-white items-center justify-center rounded-lg'}
                     textStyle={'text-white font-bold text-lg'}
                 />
             </Animated.View>

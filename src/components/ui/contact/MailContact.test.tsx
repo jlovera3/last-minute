@@ -2,7 +2,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import MailContact from "./MailContact";
-import { Linking, Text } from "react-native";
+import { Linking } from "react-native";
 
 // Mock for MaterialIcons from @expo/vector-icons
 jest.mock("@expo/vector-icons", () => {

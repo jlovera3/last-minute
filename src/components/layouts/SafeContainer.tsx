@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 /**
  * A container component that adjusts for safe area insets (notch on iOS, status bar on Android).

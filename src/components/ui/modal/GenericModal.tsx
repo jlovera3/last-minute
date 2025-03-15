@@ -1,6 +1,6 @@
 import React from "react";
 import { View, TouchableOpacity, Animated } from "react-native";
-import { Modal, Portal, Text, IconButton } from "react-native-paper";
+import { Portal, Text, IconButton } from "react-native-paper";
 import tw from "@/src/styles/tailwind";
 
 interface ModalOption {
@@ -38,7 +38,7 @@ const GenericModal: React.FC<GenericModalProps> = ({ visible, title, modalOption
             animation.start();
             return () => animation.stop();
         }
-    }, [visible]);
+    }, [visible, translateY]);
 
     return (
         <Portal>
