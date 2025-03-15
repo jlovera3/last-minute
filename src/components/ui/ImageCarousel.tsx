@@ -6,9 +6,10 @@ import FullScreenImageViewer from "./FullScreenImageViewer";
 
 interface ImageCarouselProps {
   images: string[];
+  isCardDisplayed: boolean;
 }
 
-export default function ImageCarousel({ images }: ImageCarouselProps) {
+export default function ImageCarousel({ images, isCardDisplayed }: ImageCarouselProps) {
   const { width } = Dimensions.get("window");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -18,21 +19,32 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
     setIsFullScreen(true);
   };
 
+  const closeImage = () => {
+    setSelectedImage(null);
+    setIsFullScreen(false);
+  };
+
   return (
     <View style={tw`w-full h-48`}>
       <Carousel
-        width={width * 0.85}
+        width={isCardDisplayed ? (width * 0.85) : width}
         height={200}
         data={images}
         scrollAnimationDuration={600}
         renderItem={({ item }) => (
-          <Image source={{ uri: item }} style={tw`w-full h-full rounded-lg`} resizeMode="cover" />
+          (isCardDisplayed) ? (
+            <Image source={{ uri: item }} style={tw`w-full h-full rounded-lg`} resizeMode="cover" />
+          ) : (
+            <TouchableOpacity style={tw`w-full h-full rounded-lg`} onPress={() => openImage(item)}>
+              <Image source={{ uri: item }} style={tw`w-full h-full rounded-lg`} resizeMode="cover" />
+            </TouchableOpacity>
+          )
         )}
       />
       <FullScreenImageViewer
         imageUri={selectedImage}
         visible={isFullScreen}
-        onClose={() => setIsFullScreen(false)}
+        onClose={() => closeImage()}
       />
     </View>
   );

@@ -39,7 +39,7 @@ export default function CardComponent({ hotel, style }: CardComponentProps) {
       <TouchableOpacity onPress={handlePress} activeOpacity={0.9}>
         <Card style={tw`${style ? style : "m-4 p-4"}`}>
           {validImages.length > 1 ? (
-            <ImageCarousel images={validImages} />
+            <ImageCarousel images={validImages} isCardDisplayed/>
           ) : (
             <Card.Cover
               source={validImages.length > 0 ? { uri: validImages[0] } : hotelPlaceholder}

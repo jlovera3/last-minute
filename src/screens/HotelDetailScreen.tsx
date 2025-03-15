@@ -24,7 +24,7 @@ export default function HotelDetailsScreen() {
                 <Appbar.Content title={hotel.name} />
             </Appbar.Header>
 
-            <ImageCarousel images={hotel.gallery} />
+            <ImageCarousel images={hotel.gallery} isCardDisplayed={false} />
 
             <ScrollView style={tw`flex-1 bg-white`}>
                 <View style={tw`p-4`}>
