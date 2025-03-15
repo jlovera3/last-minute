@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { useRouter } from 'expo-router';
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
 
@@ -9,11 +9,11 @@ interface TopBarProps {
 }
 
 export default function TopBar({ title, onActionOnePress, onActionTwoPress }: TopBarProps) {
-    const navigation = useNavigation();
+    const router = useRouter();
 
     return (
         <Appbar.Header>
-            <Appbar.BackAction onPress={() => navigation.goBack()} />
+            <Appbar.BackAction onPress={() => router.back()} />
             <Appbar.Content title={title} />
             <Appbar.Action icon="sort" onPress={onActionOnePress} />
             <Appbar.Action icon="animation-outline" onPress={onActionTwoPress} />

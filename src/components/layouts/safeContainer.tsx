@@ -18,7 +18,7 @@ const SafeContainer: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white", // Puedes cambiar el color según el diseño
+    backgroundColor: "white",
   },
 });
 

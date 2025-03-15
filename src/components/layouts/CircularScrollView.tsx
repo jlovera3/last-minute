@@ -1,13 +1,12 @@
 import React from "react";
-import { View, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import Animated, { useSharedValue, useAnimatedScrollHandler, useAnimatedStyle, interpolate } from "react-native-reanimated";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Hotel } from "@/src/interfaces/hotel";
 import CardComponent from "../ui/card/CardComponent";
 
 const { height, width } = Dimensions.get("window");
-const ITEM_HEIGHT = height * 0.35;
-const SPACING = height * 0.1;
+const ITEM_HEIGHT = height * 0.40;
 
 interface WheelScrollViewProps {
     hotels: Hotel[];
@@ -30,7 +29,7 @@ export default function WheelScrollView({ hotels }: WheelScrollViewProps) {
                 showsVerticalScrollIndicator={false}
                 snapToInterval={ITEM_HEIGHT}
                 contentContainerStyle={{
-                    paddingBottom: SPACING,
+                    paddingBottom: 0,
                 }}
             >
                 {hotels.map((hotel, index) => {
@@ -71,15 +70,7 @@ export default function WheelScrollView({ hotels }: WheelScrollViewProps) {
                                 },
                             ]}
                         >
-                            <CardComponent
-                                title={hotel.name}
-                                images={hotel.gallery}
-                                location={hotel.location.city}
-                                stars={hotel.stars}
-                                rating={hotel.userRating}
-                                price={`${hotel.price} ${hotel.currency === "EUR" ? "€" : hotel.currency}`}
-                                style="mx-4 p-4"
-                            />
+                            <CardComponent hotel={hotel} isWheelDisplayed />
                         </Animated.View>
                     );
                 })}

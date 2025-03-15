@@ -29,9 +29,9 @@ export default function App() {
     if (!fontsLoaded) return null;
 
     return (
-        <PaperProvider>
-            <GestureHandlerRootView style={{ flex: 1 }}>
-                <SafeAreaProvider>
+        <SafeAreaProvider>
+            <PaperProvider>
+                <GestureHandlerRootView style={{ flex: 1 }}>
                     <SafeContainer>
                         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
                             <NavigationContainer>
@@ -40,8 +40,8 @@ export default function App() {
                             <StatusBar style="auto" />
                         </ThemeProvider>
                     </SafeContainer>
-                </SafeAreaProvider>
-            </GestureHandlerRootView>
-        </PaperProvider>
+                </GestureHandlerRootView>
+            </PaperProvider>
+        </SafeAreaProvider>
     );
 }

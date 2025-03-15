@@ -22,23 +22,32 @@ const GenericModal: React.FC<GenericModalProps> = ({ visible, title, modalOption
 
     React.useEffect(() => {
         if (visible) {
-            Animated.timing(translateY, {
+            const animation = Animated.timing(translateY, {
                 toValue: 0,
                 duration: 300,
                 useNativeDriver: true,
-            }).start();
+            });
+            animation.start();
+            return () => animation.stop();
         } else {
-            Animated.timing(translateY, {
+            const animation = Animated.timing(translateY, {
                 toValue: 300,
                 duration: 300,
                 useNativeDriver: true,
-            }).start();
+            });
+            animation.start();
+            return () => animation.stop();
         }
     }, [visible]);
 
     return (
         <Portal>
-            <TouchableOpacity style={tw`absolute inset-0 bg-black/50`} activeOpacity={1} onPress={onClose} />
+            <TouchableOpacity
+                style={tw`absolute inset-0 bg-black/50`}
+                activeOpacity={1}
+                onPress={onClose}
+                testID="modal-background"
+            />
             <Animated.View
                 style={[
                     tw`absolute bottom-0 w-full bg-white p-4 rounded-t-2xl`,
@@ -46,7 +55,7 @@ const GenericModal: React.FC<GenericModalProps> = ({ visible, title, modalOption
                 ]}
             >
                 <View style={tw`flex-row items-center justify-between mb-4`}>
-                    <IconButton icon="close" onPress={onClose} />
+                    <IconButton icon="close" onPress={onClose} testID="close-button" />
                     <Text style={tw`text-lg font-bold`}>{title}</Text>
                     <View style={tw`w-8`} />
                 </View>
