@@ -13,7 +13,19 @@
     "web": "npx expo start --web",
     "test": "npx jest --watchAll",
     "lint": "npx expo lint",
-    "doctor": "npx expo-doctor"
+    "doctor": "npx expo-doctor",
+    "eas:build:android": "eas build --platform android",
+    "eas:build:ios": "eas build --platform ios",
+    "eas:build:apk": "eas build --platform android --profile preview",
+    "eas:build:aab": "eas build --platform android --profile production",
+    "eas:submit:android": "eas submit --platform android",
+    "eas:submit:ios": "eas submit --platform ios",
+    "eas:build:dev": "eas build --profile development",
+    "eas:build:staging": "eas build --profile staging",
+    "eas:build:prod": "eas build --profile production",
+    "eas:build:list": "eas build:list",
+    "eas:build:cancel": "eas build:cancel",
+    "eas:build:status": "eas build:list --status=in-progress"
   },
   "jest": {
     "preset": "jest-expo",
