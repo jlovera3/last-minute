@@ -14,6 +14,7 @@ export default function HotelLocation({ latitude, longitude, address }: Location
 
     return (
         <TouchableOpacity
+            testID="hotel-location"
             style={tw`relative mt-4 rounded-lg overflow-hidden`}
             onPress={openMaps}>
             <Image

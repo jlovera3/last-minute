@@ -13,11 +13,12 @@ interface ReelItemProps {
     location: string;
     stars: number;
     rating: number;
-    price: string;
+    price: number;
+    currency: string;
     height?: number;
 }
 
-export default function ReelItem({ title, images, location, stars, rating, price, height }: ReelItemProps) {
+export default function ReelItem({ title, images, location, stars, rating, price, currency, height }: ReelItemProps) {
     const [validImages, setValidImages] = useState<string[]>([]);
 
     useEffect(() => {
@@ -36,7 +37,7 @@ export default function ReelItem({ title, images, location, stars, rating, price
                 resizeMode="cover"
             />
             <BlurView intensity={70} tint="light" style={[tw`absolute bottom-0 w-full p-6`, { height: windowHeight * 0.25 }]}>
-                <HotelInfo title={title} stars={stars} rating={rating} price={price} />
+                <HotelInfo title={title} stars={stars} rating={rating} price={price} currency={currency} />
             </BlurView>
         </View>
     );

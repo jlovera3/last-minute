@@ -1,3 +1,4 @@
+// MailContact.tsx (modificado)
 import React from "react";
 import { Text, TouchableOpacity, Linking } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -12,6 +13,7 @@ export default function MailContact({ email }: MailContactProps) {
 
     return (
         <TouchableOpacity
+            testID="mail-contact"
             onPress={handleEmail}
             style={tw`flex-row items-center justify-center bg-blue-500 p-4 rounded-lg mt-2`}
         >

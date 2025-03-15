@@ -15,7 +15,7 @@ interface ReelsScrollProps {
 
 export default function ReelsScroll({ hotels }: ReelsScrollProps) {
     const insets = useSafeAreaInsets();
-    
+
     const adjustedHeight = windowHeight - TOP_BAR_HEIGHT - insets.top;
 
     return (
@@ -29,7 +29,8 @@ export default function ReelsScroll({ hotels }: ReelsScrollProps) {
                     location={item.location.city}
                     stars={item.stars}
                     rating={item.userRating}
-                    price={`${item.price} ${item.currency === "EUR" ? "€" : item.currency}`}
+                    price={item.price}
+                    currency={item.currency}
                     height={adjustedHeight}
                 />
             )}

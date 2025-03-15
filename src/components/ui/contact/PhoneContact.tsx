@@ -12,6 +12,7 @@ export default function PhoneContact({ phoneNumber }: PhoneContactProps) {
 
     return (
         <TouchableOpacity
+            testID="phone-contact"
             onPress={handleCall}
             style={tw`flex-row items-center justify-center bg-green-500 p-4 rounded-lg mt-4`}
         >

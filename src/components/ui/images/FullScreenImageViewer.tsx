@@ -23,6 +23,7 @@ export default function FullScreenImageViewer({
                     style={tw`absolute top-10 right-5 z-50 bg-black/50 p-2 rounded-full`}
                     onPress={onClose}
                     activeOpacity={0.7}
+                    testID="close-fullscreen"
                 >
                     <MaterialIcons name="close" size={32} color="white" />
                 </TouchableOpacity>
