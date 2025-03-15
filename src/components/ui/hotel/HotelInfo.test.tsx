@@ -1,7 +1,7 @@
 // HotelInfo.test.tsx
 import React from "react";
 import { render } from "@testing-library/react-native";
-import HotelInfo from "./hotelInfo";
+import HotelInfo from "./HotelInfo";
 
 // Mock for UserRating component
 jest.mock("../rating/UserRating", () => {

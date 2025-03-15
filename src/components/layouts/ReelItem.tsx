@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Image, Dimensions } from "react-native";
 import { BlurView } from "expo-blur";
 import tw from "@/src/styles/tailwind";
-import HotelInfo from "../ui/hotel/hotelInfo";
+import HotelInfo from "../ui/hotel/HotelInfo";
 import { checkImages } from "@/src/utils/imageUtils";
 
 const { height: windowHeight, width: windowWidth } = Dimensions.get("window");
