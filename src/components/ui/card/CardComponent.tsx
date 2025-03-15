@@ -5,7 +5,7 @@ import { useRouter } from "expo-router";
 import tw from "@/src/styles/tailwind";
 import { checkImages } from "@/src/utils/imageUtils";
 import ImageCarousel from "../images/ImageCarousel";
-import HotelInfo from "../hotel/hotelInfo";
+import HotelInfo from "../hotel/HotelInfo";
 import Animated, { FadeInUp } from "react-native-reanimated";
 import { Hotel } from "@/src/interfaces/hotel";
 
