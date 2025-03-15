@@ -18,7 +18,7 @@ Ensure you have the following installed on your machine before proceeding:
 
 ### Cloning the Repository
 ```sh
- git clone https://github.com/your-repo/last-minute.git
+ git clone https://github.com/jlovera3/last-minute.git
  cd last-minute
 ```
 
