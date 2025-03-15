@@ -136,8 +136,8 @@ Check for dependency issues:
 You can download the latest Android build from App Center using the following link:
 [App Center Download Link](https://appcenter.ms/apps/YOUR_APP_ID/distribute/releases)
 
-## 📸 Open this link on your Android devices (or scan the QR code) to install the app:
-### 🔗 https://expo.dev/accounts/jlovera3/projects/last-minute/builds/cf6cc608-2a7b-4076-83a6-4e8832d5f80d
+### 📸 Open this link on your Android devices (or scan the QR code) to install the app:
+🔗 https://expo.dev/accounts/jlovera3/projects/last-minute/builds/cf6cc608-2a7b-4076-83a6-4e8832d5f80d
 ![QR Code](src/assets/images/qr-code.png)
 
 ## ❗ Notes
