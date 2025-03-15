@@ -1,53 +1,149 @@
-# last-minute
- Mobile Coding Exercise for Lastminute.com
+# Last-Minute App
 
-# Welcome to your Expo app 👋
+## 📋 Overview
+Last-Minute is a React Native app built with **Expo** and **EAS (Expo Application Services)**. This document provides a comprehensive guide on how to set up, install dependencies, run the app on iOS and Android, execute tests, and build the application for distribution.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 🚀 Getting Started
+### Prerequisites
+Ensure you have the following installed on your machine before proceeding:
 
-## Get started
+- **Node.js** (Latest LTS recommended)
+- **npm** (bundled with Node.js) or **Yarn**
+- **Git** (for version control)
+- **Expo CLI** (`npm install -g expo-cli`)
+- **EAS CLI** (`npm install -g eas-cli`)
+- **Xcode** (for iOS development, Mac users only)
+- **CocoaPods** (`sudo gem install cocoapods` for iOS dependencies)
+- **Android Studio** (for Android development)
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+### Cloning the Repository
+```sh
+ git clone https://github.com/your-repo/last-minute.git
+ cd last-minute
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Installing Dependencies
+```sh
+ npm install
+```
 
-## Learn more
+### Setting Up Environment Variables
+Create a `.env` file in the root directory and add necessary environment variables. Ensure they are properly configured for development and production environments.
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📱 Running the App
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Start the Expo Development Server
+```sh
+ npm start
+```
+This will launch the Expo developer server, providing a QR code for running the app on a physical device using the Expo Go app.
 
-## Join the community
+### Running on Android
+```sh
+ npm run android
+```
+Make sure you have an emulator running or a physical device connected.
 
-Join our community of developers creating universal apps.
+### Running on iOS
+```sh
+ npm run ios
+```
+Only works on **macOS** with Xcode installed.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🔧 Additional Commands
+### Prebuild the project
+```sh
+ npm run prebuild
+```
+This generates the native iOS and Android folders.
+
+### Open in iOS Simulator with Xcode
+```sh
+ npm run open:ios
+```
+
+### Open in Android Studio
+```sh
+ npm run open:android
+```
+
+### Run in Web Mode
+```sh
+ npm run web
+```
+
+## 🏗️ Building the App
+### Android (APK)
+```sh
+ npm run eas:build:apk
+```
+
+### Android (AAB for Play Store)
+```sh
+ npm run eas:build:aab
+```
+
+### iOS (Requires Apple Developer Account)
+```sh
+ npm run eas:build:ios
+```
+Since an Apple Developer account is required to build for iOS, this step has **not been completed**.
+
+### Submit Android Build to Google Play Store
+```sh
+ npm run eas:submit:android
+```
+
+### Submit iOS Build to Apple Store (Not available)
+```sh
+ npm run eas:submit:ios
+```
+
+## 🧪 Testing
+Run unit tests:
+```sh
+ npm run test
+```
+
+Run linting to check code formatting:
+```sh
+ npm run lint
+```
+
+Check for dependency issues:
+```sh
+ npm run doctor
+```
+
+## 📦 Build Management
+### List All Builds
+```sh
+ npm run eas:build:list
+```
+
+### Cancel an In-Progress Build
+```sh
+ npm run eas:build:cancel
+```
+
+### Check Build Status
+```sh
+ npm run eas:build:status
+```
+
+## 📥 App Distribution
+### Download Android Build from App Center
+You can download the latest Android build from App Center using the following link:
+[App Center Download Link](https://appcenter.ms/apps/YOUR_APP_ID/distribute/releases)
+
+## 📸 Open this link on your Android devices (or scan the QR code) to install the app:
+### 🔗 https://expo.dev/accounts/jlovera3/projects/last-minute/builds/cf6cc608-2a7b-4076-83a6-4e8832d5f80d
+![QR Code](src/assets/images/qr-code.png)
+
+## ❗ Notes
+- The iOS build is **not available** since an Apple Developer Account is required.
+- Ensure you are logged into the correct Expo and EAS accounts when building and deploying.
+
+## 📜 License
+This project is licensed under [MIT License](LICENSE).
+
