@@ -1,26 +1,20 @@
 import { hotelsMock } from "../mocks/hotelsMock";
+import { isWeb } from "../utils/platformUtils";
 
-/**
- * Base API URL from environment variables.
- * @type {string}
- */
 const API_URL = 'https://technology.lastminute.com/api/';
 
-/**
- * Generic function to handle API requests.
- * @param {string} endpoint - API endpoint (e.g., "/hotels").
- * @param {RequestInit} [options] - Optional fetch configuration.
- * @returns {Promise<any>} Resolves with API response data or throws an error.
- */
 export async function apiRequest<T>(endpoint: string): Promise<T> {
     try {
+        if (isWeb()) {
+            return hotelsMock as T;
+        }
+
         const response = await fetch(`${API_URL}${endpoint}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
         });
-        console.log("response:", response);
 
         switch (response.status) {
             case 200: {
@@ -42,8 +36,6 @@ export async function apiRequest<T>(endpoint: string): Promise<T> {
         }
     } catch (error) {
         console.error("API request failed, returning mock data instead,", error);
-        return hotelsMock as unknown as T;
-    } /* finally {
-        return hotelsMock as unknown as T;
-    } */
+        throw error;
+    }
 }

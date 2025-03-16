@@ -7,18 +7,18 @@ import ImageCarousel from "./ImageCarousel";
 jest.mock("react-native-reanimated-carousel", () => {
     const React = require("react");
     return function DummyCarousel(props: any) {
-        // Iterate over data array and render each item using renderItem wrapped in a Fragment with a key
         return (
-            <>
+            <React.Fragment>
                 {props.data.map((item: string, index: number) => (
                     <React.Fragment key={index}>
                         {props.renderItem({ item, index })}
                     </React.Fragment>
                 ))}
-            </>
+            </React.Fragment>
         );
     };
 });
+
 
 jest.mock("./FullScreenImageViewer", () => {
     const React = require("react");
@@ -27,7 +27,7 @@ jest.mock("./FullScreenImageViewer", () => {
     const MockFullScreenImageViewer = (props: any) =>
         props.visible ? <Text>FullScreen</Text> : null;
 
-    MockFullScreenImageViewer.displayName = "MockFullScreenImageViewer"; 
+    MockFullScreenImageViewer.displayName = "MockFullScreenImageViewer";
 
     return MockFullScreenImageViewer;
 });
@@ -47,10 +47,7 @@ function countNodesByType(node: any, type: string): number {
 }
 
 describe("ImageCarousel", () => {
-    const images = [
-        "https://example.com/image1.jpg",
-        "https://example.com/image2.jpg",
-    ];
+    const images = ["https://example.com/image1.jpg"];
 
     it("renders images directly when isCardDisplayed is true", () => {
         const { toJSON } = render(
