@@ -10,7 +10,6 @@ import SafeContainer from "./src/components/layouts/SafeContainer";
 import { useFonts, Poppins_400Regular, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 import { SplashScreen } from "expo-router";
 import { useEffect } from "react";
-import { theme } from "./src/styles/theme";
 
 export default function App() {
     const [fontsLoaded] = useFonts({

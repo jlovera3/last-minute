@@ -7,23 +7,34 @@ import HotelInfo from "./HotelInfo";
 jest.mock("../rating/UserRating", () => {
     const React = require("react");
     const { Text } = require("react-native");
-    return (props: any) => (
+
+    const MockUserRating = (props: any) => (
         <Text testID="user-rating">
             {`UserRating: ${props.stars} stars, ${props.rating} rating`}
         </Text>
     );
+
+    MockUserRating.displayName = "MockUserRating";
+
+    return MockUserRating;
 });
 
 // Mock for HotelPrice component
 jest.mock("./HotelPrice", () => {
     const React = require("react");
     const { Text } = require("react-native");
-    return (props: any) => (
+
+    const MockHotelPrice = (props: any) => (
         <Text testID="hotel-price">
             {`HotelPrice: ${props.price} ${props.currency}`}
         </Text>
     );
+
+    MockHotelPrice.displayName = "MockHotelPrice";
+
+    return MockHotelPrice;
 });
+
 
 describe("HotelInfo", () => {
     it("renders hotel title, user rating and hotel price correctly", () => {

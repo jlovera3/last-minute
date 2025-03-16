@@ -20,12 +20,18 @@ jest.mock("react-native-reanimated-carousel", () => {
     };
 });
 
-// Mock for FullScreenImageViewer
 jest.mock("./FullScreenImageViewer", () => {
     const React = require("react");
-    const { Text } = require("react-native"); // Import Text inside the factory to avoid out-of-scope errors
-    return (props: any) => (props.visible ? <Text>FullScreen</Text> : null);
+    const { Text } = require("react-native");
+
+    const MockFullScreenImageViewer = (props: any) =>
+        props.visible ? <Text>FullScreen</Text> : null;
+
+    MockFullScreenImageViewer.displayName = "MockFullScreenImageViewer"; 
+
+    return MockFullScreenImageViewer;
 });
+
 
 // Helper function to recursively count nodes by type in the JSON tree
 function countNodesByType(node: any, type: string): number {
