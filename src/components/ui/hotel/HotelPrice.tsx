@@ -8,18 +8,19 @@ import { getCurrencySymbol } from "@/src/utils/currencyUtils";
  * Component to display hotel price with currency symbol.
  */
 interface HotelPriceProps {
-    price: number;
-    currency: string;
+  price: number;
+  currency: string;
 }
 
 export default function HotelPrice({ price, currency }: HotelPriceProps) {
-    const currencySymbol = getCurrencySymbol(currency);
+  const currencySymbol = getCurrencySymbol(currency);
 
-    return (
-        <View style={tw`flex-row justify-end`}>
-            <Paragraph style={tw`text-lg mt-2`}>
-                {price}{currencySymbol} per night
-            </Paragraph>
-        </View>
-    );
+  return (
+    <View style={tw`flex-row justify-end`}>
+      <Paragraph style={tw`text-lg mt-2`}>
+        {price}
+        {currencySymbol} per night
+      </Paragraph>
+    </View>
+  );
 }

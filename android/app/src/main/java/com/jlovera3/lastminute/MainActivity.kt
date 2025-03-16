@@ -1,4 +1,4 @@
-package com.anonymous.lastminute
+package com.jlovera3.lastminute
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

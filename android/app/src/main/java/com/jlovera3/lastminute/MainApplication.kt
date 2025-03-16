@@ -1,4 +1,4 @@
-package com.anonymous.lastminute
+package com.jlovera3.lastminute
 
 import android.app.Application
 import android.content.res.Configuration

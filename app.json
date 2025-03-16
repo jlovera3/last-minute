@@ -2,22 +2,23 @@
   "expo": {
     "name": "last-minute",
     "slug": "last-minute",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "last-minute",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.lastminute"
+      "bundleIdentifier": "com.jlovera3.lastminute"
     },
     "android": {
+      "versionCode": 2,
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.lastminute"
+      "package": "com.jlovera3.lastminute"
     },
     "web": {
       "bundler": "metro",

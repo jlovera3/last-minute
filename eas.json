@@ -1,37 +1,37 @@
 {
-    "cli": {
-        "appVersionSource": "remote"
+  "cli": {
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "simulator": true
+      }
     },
-    "build": {
-        "development": {
-            "distribution": "internal",
-            "android": {
-                "gradleCommand": ":app:assembleDebug"
-            },
-            "ios": {
-                "simulator": true
-            }
-        },
-        "preview": {
-            "distribution": "internal",
-            "android": {
-                "buildType": "apk"
-            },
-            "ios": {
-                "simulator": true
-            }
-        },
-        "production": {
-            "distribution": "store",
-            "android": {
-                "buildType": "app-bundle"
-            },
-            "ios": {
-                "enterpriseProvisioning": "universal"
-            },
-            "env": {
-              "EXPO_NO_UPDATES": "1"
-            }      
-        }
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {
+        "enterpriseProvisioning": "universal"
+      },
+      "env": {
+        "EXPO_NO_UPDATES": "1"
+      }
     }
+  }
 }
