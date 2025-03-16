@@ -16,7 +16,9 @@ jest.mock("react-native-paper", () => {
   return {
     ...actual,
     IconButton: ({ icon, onPress, testID }) => (
-      <button data-testid={testID} onClick={onPress}>{icon}</button>
+      <button data-testid={testID} onClick={onPress}>
+        {icon}
+      </button>
     ),
     Portal: ({ children }) => children,
   };

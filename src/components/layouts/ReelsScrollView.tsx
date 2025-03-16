@@ -10,30 +10,27 @@ const TOP_BAR_HEIGHT = 64;
 const { height: windowHeight } = Dimensions.get("window");
 
 interface ReelsScrollProps {
-    hotels: Hotel[];
+  hotels: Hotel[];
 }
 
 export default function ReelsScroll({ hotels }: ReelsScrollProps) {
-    const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets();
 
-    const adjustedHeight = windowHeight - TOP_BAR_HEIGHT - insets.top;
+  const adjustedHeight = windowHeight - TOP_BAR_HEIGHT - insets.top;
 
-    return (
-        <FlatList
-            data={hotels}
-            keyExtractor={(hotel) => hotel.id.toString()}
-            renderItem={({ item }) => (
-                <ReelItem
-                    hotel={item}
-                    height={adjustedHeight}
-                />
-            )}
-            pagingEnabled
-            showsVerticalScrollIndicator={false}
-            snapToInterval={adjustedHeight}
-            decelerationRate="fast"
-            contentContainerStyle={{ height: hotels.length * adjustedHeight }}
-            style={tw`flex-1`}
-        />
-    );
+  return (
+    <FlatList
+      data={hotels}
+      keyExtractor={(hotel) => hotel.id.toString()}
+      renderItem={({ item }) => (
+        <ReelItem hotel={item} height={adjustedHeight} />
+      )}
+      pagingEnabled
+      showsVerticalScrollIndicator={false}
+      snapToInterval={adjustedHeight}
+      decelerationRate="fast"
+      contentContainerStyle={{ height: hotels.length * adjustedHeight }}
+      style={tw`flex-1`}
+    />
+  );
 }

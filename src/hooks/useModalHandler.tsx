@@ -10,9 +10,15 @@ export function useModalHandler() {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalTitle, setModalTitle] = useState<string>("");
   const [modalOptions, setModalOptions] = useState<ModalOption[]>([]);
-  const [onSelectCallback, setOnSelectCallback] = useState<(selected: number) => void>(() => {});
+  const [onSelectCallback, setOnSelectCallback] = useState<
+    (selected: number) => void
+  >(() => {});
 
-  const openModal = (title: string, options: ModalOption[], onSelect: (selected: number) => void) => {
+  const openModal = (
+    title: string,
+    options: ModalOption[],
+    onSelect: (selected: number) => void
+  ) => {
     setModalTitle(title);
     setModalOptions(options);
     setOnSelectCallback(() => onSelect);
@@ -21,5 +27,12 @@ export function useModalHandler() {
 
   const closeModal = () => setModalVisible(false);
 
-  return { modalVisible, modalTitle, modalOptions, openModal, closeModal, onSelectCallback };
+  return {
+    modalVisible,
+    modalTitle,
+    modalOptions,
+    openModal,
+    closeModal,
+    onSelectCallback,
+  };
 }

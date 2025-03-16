@@ -1,6 +1,10 @@
 import { useAnimatedStyle, interpolate } from "react-native-reanimated";
 
-export function useAnimatedWheelStyle(scrollY: any, index: number, itemHeight: number) {
+export function useAnimatedWheelStyle(
+  scrollY: any,
+  index: number,
+  itemHeight: number
+) {
   return useAnimatedStyle(() => {
     const inputRange = [
       (index - 2) * itemHeight,

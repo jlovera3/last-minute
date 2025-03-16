@@ -3,9 +3,6 @@ module.exports = {
   env: {
     jest: true,
   },
-  extends: [
-    'expo',
-    "eslint:recommended",
-  ],
-  ignorePatterns: ['/dist/*'],
+  extends: ["expo", "eslint:recommended"],
+  ignorePatterns: ["/dist/*"],
 };

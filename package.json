@@ -14,6 +14,7 @@
     "test": "npx jest --watchAll",
     "lint": "npx expo lint",
     "doctor": "npx expo-doctor",
+    "format": "prettier --write \"app/**/*\" \"src/**/*\" \"./*\"",
     "eas:build:android": "eas build --platform android",
     "eas:build:ios": "eas build --platform ios",
     "eas:build:apk": "eas build --platform android --profile preview",

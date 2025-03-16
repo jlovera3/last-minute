@@ -15,7 +15,11 @@ interface CardComponentProps {
   isWheelDisplayed?: boolean;
 }
 
-export default function CardComponent({ hotel, style, isWheelDisplayed }: CardComponentProps) {
+export default function CardComponent({
+  hotel,
+  style,
+  isWheelDisplayed,
+}: CardComponentProps) {
   const router = useRouter();
   const [validImages, setValidImages] = useState<string[]>([]);
   const hotelPlaceholder = require("@/src/assets/images/hotel-placeholder.png");
@@ -40,10 +44,18 @@ export default function CardComponent({ hotel, style, isWheelDisplayed }: CardCo
       <TouchableOpacity onPress={handlePress} activeOpacity={0.9}>
         <Card style={tw`${style ? style : "m-4 p-4"}`}>
           {validImages.length > 1 ? (
-            <ImageCarousel images={validImages} isCardDisplayed isWheelDisplayed={isWheelDisplayed} />
+            <ImageCarousel
+              images={validImages}
+              isCardDisplayed
+              isWheelDisplayed={isWheelDisplayed}
+            />
           ) : (
             <Card.Cover
-              source={validImages.length > 0 ? { uri: validImages[0] } : hotelPlaceholder}
+              source={
+                validImages.length > 0
+                  ? { uri: validImages[0] }
+                  : hotelPlaceholder
+              }
               style={tw`h-48 w-full rounded-lg`}
             />
           )}

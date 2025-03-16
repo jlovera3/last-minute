@@ -11,7 +11,7 @@ describe("HotelLocation", () => {
 
   it("renders the Image with the correct map image URL", () => {
     const latitude = 40.7128;
-    const longitude = -74.0060;
+    const longitude = -74.006;
     const address = "New York, NY";
     const city = "New York"; // propiedad requerida por Location
     const expectedMapImageUrl = `https://static-maps.yandex.ru/1.x/?ll=${longitude},${latitude}&z=14&l=map&size=600,300`;
@@ -49,7 +49,7 @@ describe("HotelLocation", () => {
 
   it("calls Linking.openURL with the correct URL when the image is pressed", () => {
     const latitude = 40.7128;
-    const longitude = -74.0060;
+    const longitude = -74.006;
     const address = "New York, NY";
     const city = "New York"; // propiedad requerida por Location
     const expectedURL = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;

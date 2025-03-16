@@ -11,7 +11,11 @@ interface ImageCarouselProps {
   isWheelDisplayed?: boolean;
 }
 
-export default function ImageCarousel({ images, isCardDisplayed, isWheelDisplayed }: ImageCarouselProps) {
+export default function ImageCarousel({
+  images,
+  isCardDisplayed,
+  isWheelDisplayed,
+}: ImageCarouselProps) {
   const { width } = Dimensions.get("window");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -39,25 +43,46 @@ export default function ImageCarousel({ images, isCardDisplayed, isWheelDisplaye
   return (
     <View style={tw`w-full h-48`}>
       {validImages.length === 0 ? (
-        <TouchableOpacity style={tw`w-full h-full rounded-lg`} onPress={() => openImage(hotelPlaceholder)}>
-          <Image source={hotelPlaceholder} style={tw`w-full h-48 rounded-lg`} resizeMode="cover" />
+        <TouchableOpacity
+          style={tw`w-full h-full rounded-lg`}
+          onPress={() => openImage(hotelPlaceholder)}
+        >
+          <Image
+            source={hotelPlaceholder}
+            style={tw`w-full h-48 rounded-lg`}
+            resizeMode="cover"
+          />
         </TouchableOpacity>
       ) : (
         <Carousel
-          width={isCardDisplayed ? (width * (isWheelDisplayed ? 0.8 : 0.85)) : width}
+          width={
+            isCardDisplayed ? width * (isWheelDisplayed ? 0.8 : 0.85) : width
+          }
           height={200}
           data={images}
           scrollAnimationDuration={600}
-          renderItem={({ item }) => (
-            (isCardDisplayed) ? (
-              <Image source={{ uri: item }} style={tw`w-full h-full rounded-lg`} resizeMode="cover" />
+          renderItem={({ item }) =>
+            isCardDisplayed ? (
+              <Image
+                source={{ uri: item }}
+                style={tw`w-full h-full rounded-lg`}
+                resizeMode="cover"
+              />
             ) : (
-              <TouchableOpacity style={tw`w-full h-full rounded-lg`} onPress={() => openImage(item)}>
-                <Image source={{ uri: item }} style={tw`w-full h-full rounded-lg`} resizeMode="cover" />
+              <TouchableOpacity
+                style={tw`w-full h-full rounded-lg`}
+                onPress={() => openImage(item)}
+              >
+                <Image
+                  source={{ uri: item }}
+                  style={tw`w-full h-full rounded-lg`}
+                  resizeMode="cover"
+                />
               </TouchableOpacity>
             )
-          )}
-        />)}
+          }
+        />
+      )}
       <FullScreenImageViewer
         imageUri={selectedImage}
         visible={isFullScreen}

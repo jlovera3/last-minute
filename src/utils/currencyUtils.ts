@@ -2,16 +2,16 @@
  * Mapping of currency codes to symbols.
  */
 const currencySymbols: { [key: string]: string } = {
-    EUR: "€",
-    USD: "$",
-    GBP: "£",
-    JPY: "¥",
-    AUD: "A$",
-    CAD: "C$",
-    CHF: "CHF",
-    CNY: "¥",
-    SEK: "kr",
-    NZD: "NZ$",
+  EUR: "€",
+  USD: "$",
+  GBP: "£",
+  JPY: "¥",
+  AUD: "A$",
+  CAD: "C$",
+  CHF: "CHF",
+  CNY: "¥",
+  SEK: "kr",
+  NZD: "NZ$",
 };
 
 /**
@@ -20,5 +20,5 @@ const currencySymbols: { [key: string]: string } = {
  * @returns {string} The corresponding currency symbol or the original code if not found.
  */
 export function getCurrencySymbol(currencyCode: string): string {
-    return currencySymbols[currencyCode] || currencyCode;
+  return currencySymbols[currencyCode] || currencyCode;
 }

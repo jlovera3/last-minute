@@ -1,2 +1,2 @@
-import tw from 'twrnc';
+import tw from "twrnc";
 export default tw;
