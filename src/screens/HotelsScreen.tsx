@@ -1,5 +1,5 @@
 import TopBar from "@/src/components/common/TopBar";
-import CircularScrollView from "@/src/components/layouts/CircularScrollView";
+import WheelScrollView from "@/src/components/layouts/WheelScrollView";
 import ReelsScroll from "@/src/components/layouts/ReelsScrollView";
 import CardComponent from "@/src/components/ui/card/CardComponent";
 import GenericModal from "@/src/components/ui/modal/GenericModal";
@@ -108,7 +108,7 @@ export default function HotelsScreen() {
                         )}
                     />
                 ) : displayMode === 1 ? (
-                    <CircularScrollView hotels={hotels} />
+                    <WheelScrollView hotels={hotels} />
                 ) : (
                     <ReelsScroll hotels={hotels} />
                 )}
