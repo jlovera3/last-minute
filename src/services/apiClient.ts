@@ -12,7 +12,7 @@ const API_URL = 'https://technology.lastminute.com/api/';
  * @param {RequestInit} [options] - Optional fetch configuration.
  * @returns {Promise<any>} Resolves with API response data or throws an error.
  */
-export async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+export async function apiRequest<T>(endpoint: string): Promise<T> {
     try {
         const response = await fetch(`${API_URL}${endpoint}`, {
             method: 'GET',
